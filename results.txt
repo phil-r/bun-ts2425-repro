@@ -1,0 +1,18 @@
+$ bun --revision
+1.4.4+38afee6c8
+$ bun check --no-script --no-pretty --all -p tsconfig.json
+repro.ts(8,12): error TS2425: Class 'Base' defines instance member property 'method', but extended class 'Derived' defines it as instance member function.
+Found 1 error in 1 file, checked 51 files [9.80ms]
+exit=1
+
+$ bunx --package typescript@7.0.2 tsc --version
+Version 7.0.2
+$ bunx --package typescript@7.0.2 tsc -p tsconfig.json
+exit=0
+
+$ bunx --package bun@1.4.4-canary.20261030.1 bun --revision
+1.4.4-canary.1+da867c60b
+$ bunx --package bun@1.4.4-canary.20261030.1 bun check --no-script --no-pretty --all -p tsconfig.json
+repro.ts(8,12): error TS2425: Class 'Base' defines instance member property 'method', but extended class 'Derived' defines it as instance member function.
+Found 1 error in 1 file, checked 51 files [6.28ms]
+exit=1
