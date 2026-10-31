@@ -2,6 +2,8 @@
 
 Minimal reproduction of a false TS2425 error in `bun check`. A class inherits an object-literal method through `ReturnType` and interface merging, then overrides it.
 
+Reported in [oven-sh/bun#47530](https://github.com/oven-sh/bun/issues/47530).
+
 ## Reproduce
 
 ```sh
